@@ -572,3 +572,118 @@ function closePopup() {
   document.getElementById("popup").style.display = "none";
   document.getElementById("overlay").style.display = "none";
 }
+// Function for second popup
+function openPop() {
+  document.getElementById("popupz").style.display = "block";
+  document.getElementById("overlayz").style.display = "block";
+}
+
+function closePop() {
+  document.getElementById("popupz").style.display = "none";
+  document.getElementById("overlayz").style.display = "none";
+}
+
+//calculator
+
+var input = document.getElementById("kilometers");
+
+// Execute a function when the user presses a key on the keyboard
+input.addEventListener("keypress", function (event) {
+  // If the user presses the "Enter" key on the keyboard
+  if (event.key === "Enter") {
+    // Cancel the default action, if needed
+    event.preventDefault();
+    // Trigger the button element with a click
+    document.getElementById("button").click();
+  }
+});
+
+// Add event listener to detect changes in kilometers input
+input.addEventListener("input", function (event) {
+  const kilometersInput = document.getElementById("kilometers");
+  const kilometers = parseInt(kilometersInput.value);
+
+  // If kilometers input is empty, reset totalPrice to zero
+  if (kilometersInput.value === "") {
+    totalPrice = 0;
+  }
+});
+
+function calculatePrice() {
+  const city = document.getElementById("city").value;
+  const carType = document.getElementById("carType").value;
+  const kilometersInput = document.getElementById("kilometers");
+  const kilometers = parseInt(kilometersInput.value);
+
+  // Validation: Check if kilometers input is empty
+  if (isNaN(kilometers) || kilometers <= 0) {
+    document.getElementById("error-kilometers").innerText =
+      "გთხოვთ შეავსეთ კილომეტრების ველი.";
+    return;
+  } else {
+    document.getElementById("error-kilometers").innerText = "";
+  }
+
+  let suvPrice, totalPrice;
+
+  if (kilometers > 10) {
+    switch (city) {
+      case "Evakuatori":
+        switch (carType) {
+          case "SUV":
+            suvPrice = 60;
+            break;
+          case "Sedan":
+            suvPrice = 50;
+            break;
+          case "Hatchback":
+            suvPrice = 70;
+            break;
+        }
+        break;
+      case "Batumi":
+        switch (carType) {
+          case "SUV":
+            suvPrice = 70;
+            break;
+          case "Sedan":
+            suvPrice = 60;
+            break;
+          case "Hatchback":
+            suvPrice = 80;
+            break;
+        }
+        break;
+      case "Mtskheta":
+        switch (carType) {
+          case "SUV":
+            suvPrice = 70;
+            break;
+          case "Sedan":
+            suvPrice = 60;
+            break;
+          case "Hatchback":
+            suvPrice = 80;
+            break;
+        }
+        break;
+      default:
+        break;
+    }
+    const additionalPricePerKm = 10;
+    const additionalKilometers = (kilometers - 10) / 5;
+    totalPrice = suvPrice + additionalKilometers * additionalPricePerKm;
+  } else {
+    const prices = {
+      SUV: { Evakuatori: 60, Batumi: 70, Mtskheta: 70 },
+      Sedan: { Evakuatori: 50, Batumi: 60, Mtskheta: 60 },
+      Hatchback: { Evakuatori: 70, Batumi: 80, Batumi: 80 },
+    };
+    totalPrice = prices[carType][city];
+  }
+
+  // Display result
+  document.getElementById(
+    "result"
+  ).innerHTML = `Total Price: ₾${totalPrice.toFixed(2)}`;
+}

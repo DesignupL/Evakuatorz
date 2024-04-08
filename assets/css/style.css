@@ -3944,18 +3944,53 @@ Services Three Services
   transform: translate(-50%, -50%);
   background-color: var(--thm-primary);
   padding: 20px;
-  border: 1px solid #000000;
   border-radius: 5px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-  z-index: 9999;
+  box-shadow: 0px 2px 10px rgb(141, 138, 109);
+  z-index: 9998;
 }
 
 .popup p {
+  margin-top: 20px;
   color: #000000;
+  width: 400px;
+  height: 100px;
 }
 
 /* Styles for the overlay */
 .overlay {
+  display: none; /* Hide the overlay by default */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 9997;
+}
+
+.popupz {
+  display: none; /* Hide the popup by default */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--thm-primary);
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0px 2px 10px rgb(141, 138, 109);
+  z-index: 9999;
+}
+
+.popupz p {
+  margin-top: 20px;
+  margin-bottom: 50px;
+  color: #000000;
+  width: 400px;
+  height: 100px;
+}
+
+/* Styles for the overlay */
+.overlayz {
   display: none; /* Hide the overlay by default */
   position: fixed;
   top: 0;
@@ -3971,6 +4006,11 @@ Services Three Services
   border: #000000;
 }
 
+#contactbtn1 {
+  background-color: transparent;
+  border: none;
+}
+
 #close-btn {
   margin-top: 10px;
   background-color: #000080;
@@ -3982,4 +4022,9 @@ Services Three Services
 #iconz {
   display: flex;
   justify-content: end;
+}
+
+#roundimg {
+  width: 60%;
+  height: 60%;
 }
