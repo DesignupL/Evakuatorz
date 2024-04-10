@@ -3271,13 +3271,6 @@ Work process Two
   z-index: 1;
 }
 
-.work-process-two1 {
-  position: relative;
-  display: block;
-  padding: 120px 0px 71px;
-  z-index: 1;
-}
-
 .work-process-two__bg {
   position: absolute;
   top: 0;
@@ -4199,4 +4192,11 @@ button:hover {
     height: 0;
     transform: rotate(45deg);
   }
+}
+
+.work-process-two1 {
+  position: relative;
+  display: block;
+  padding: 120px 0px 71px;
+  z-index: 1;
 }
