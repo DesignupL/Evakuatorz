@@ -728,6 +728,55 @@
         </div>
       </section>
       <!--End Services Three-->
+      <div>
+        <h2 class="divider donotcross">სერვისის ფასთა კალკულატორი</h2>
+      </div>
+      <!--calculator strat-->
+      <section class="work-process-two1">
+        <div
+          class="work-process-two__bg"
+          style="
+            background-image: url(assets/img/slider/steel-pictures-a967etyw52c8i6ub.jpg);
+          "
+        ></div>
+        <div class="container">
+          <div class="containerz">
+            <div class="form-group">
+              <label for="city">Select service:</label>
+              <select class="formdrop" id="city">
+                <option value="Evakuatori">ევაკუატორი</option>
+                <option value="Batumi">საბურავის შეცვლა</option>
+                <option value="Mtskheta">მანქანის დაქოქვა</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="carType">Select Car Type:</label>
+              <select id="carType" class="formdrop">
+                <option value="Sedan">Sedan</option>
+                <option value="SUV">SUV</option>
+                <option value="Hatchback">Hatchback</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="kilometers">Enter Kilometers:</label>
+              <input
+                class="formdrop"
+                type="number"
+                id="kilometers"
+                placeholder="Enter kilometers"
+                required
+              />
+            </div>
+            <button onclick="calculatePrice()">Calculate Price</button>
+          </div>
+          <div class="result" id="result"></div>
+          <div id="error-kilometers" class="error-message"></div>
+        </div>
+      </section>
+      <div>
+        <h2 class="divider donotcross1"></h2>
+      </div>
+      <!--calculator end-->
 
       <!--Start Why Choose Two-->
       <section class="why-choose-two" id="why-choose-two">
@@ -739,7 +788,6 @@
                 <div class="sec-title-style3">
                   <div class="sub-title">
                     <div class="icon"></div>
-                    <h5>რატომ ევაკუატორ +</h5>
                   </div>
                   <h2>
                     ჩვენი მრავალწლიანი გამოცდილება<br />
@@ -982,7 +1030,7 @@
           <div class="faq-three__top">
             <div class="sec-title-style3">
               <div class="sub-title"></div>
-              <h2>ხშირად დასმული კითხვები</h2>
+              <h3>ხშირად დასმული კითხვები</h3>
             </div>
 
             <div class="btn-box">

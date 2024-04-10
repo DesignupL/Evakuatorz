@@ -2993,6 +2993,65 @@ Company Benefit One
 
 /***
 =============================================
+  Cta
+  Three
+  =============================================
+  ***/
+.cta-two.style4 {
+  position: relative;
+  display: block;
+  margin-top: 0px;
+  z-index: 2;
+}
+
+.cta-two.style4 .sec-title-style3 {
+  padding-bottom: 0px;
+}
+
+.cta-two.style4 .sec-title-style3 .sub-title h5 {
+  color: var(--thm-black);
+}
+
+.cta-two.style4 .sec-title-style3 h2 {
+  font-size: 36px;
+  line-height: 1.3em;
+}
+
+.cta-two.style4 .cta-two__inner {
+  padding: 55px 110px 44px;
+}
+
+.cta-two.style4 .cta-two__inner-box .btn-box .thm-btn {
+  color: var(--thm-primary);
+}
+
+.cta-two.style4 .cta-two__inner-box .btn-box .thm-btn:hover {
+  color: var(--thm-black);
+}
+
+.cta-two.style4 .cta-two__inner-box .btn-box .thm-btn::after {
+  background: var(--thm-black);
+}
+
+.cta-two.style4 .cta-two__inner-box .btn-box .thm-btn::before {
+  background: var(--thm-white);
+}
+
+.cta-two.style4 .cta-two__inner .shape1 {
+  top: -45px;
+  left: -80px;
+}
+
+.cta-two.style4 .cta-two__inner .shape2 {
+  top: -40px;
+}
+
+.cta-two.style4 .cta-two__inner .shape3 {
+  right: 365px;
+}
+
+/***
+=============================================
 Why Choose Two
 =============================================
 ***/
@@ -3206,6 +3265,12 @@ Work process Two
 =============================================
 ***/
 .work-process-two {
+  position: relative;
+  display: block;
+  padding: 120px 0px 71px;
+  z-index: 1;
+}
+.work-process-two1 {
   position: relative;
   display: block;
   padding: 120px 0px 71px;
@@ -4027,4 +4092,109 @@ Services Three Services
 #roundimg {
   width: 60%;
   height: 60%;
+}
+
+.containerz {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 15vh;
+  margin: 10px auto;
+  padding: 10px;
+  width: 85%;
+}
+.form-group {
+  width: 100%;
+  margin-bottom: 20px;
+}
+label {
+  font-size: 17px;
+  font-weight: bold;
+  color: #ffffff;
+  display: block;
+  margin-bottom: 5px;
+  width: 70%;
+}
+input[type="number"],
+.formdrop {
+  width: 80%; /* Considering padding and borders */
+  height: 50px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  box-sizing: border-box; /* Ensure padding and border are included in width */
+}
+button {
+  width: calc(100% - 25px); /* Considering padding and borders */
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  box-sizing: border-box; /* Ensure padding and border are included in width */
+}
+button:hover {
+  background-color: #000000;
+}
+.result {
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+  font-size: 25px;
+}
+.result h3 {
+  margin-bottom: 30px;
+}
+
+.error-message {
+  color: red;
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+  font-size: 25px;
+}
+.divider {
+  display: flex;
+
+  &:before,
+  &:after {
+    content: "";
+    flex: 1;
+  }
+}
+
+.donotcross {
+  overflow: hidden;
+  align-items: center;
+  background: #ffd550;
+  color: black;
+  height: 2em;
+  line-height: 2em;
+
+  &:before,
+  &:after {
+    background: #f68b1fba;
+    padding: 50px 0;
+    height: 0;
+    transform: rotate(-45deg);
+  }
+}
+
+.donotcross1 {
+  margin-bottom: 50px;
+  overflow: hidden;
+  align-items: center;
+  background: #ffd550;
+  color: black;
+  height: 2em;
+  line-height: 2em;
+
+  &:before,
+  &:after {
+    background: #f68b1fba;
+    padding: 50px 0;
+    height: 0;
+    transform: rotate(45deg);
+  }
 }
