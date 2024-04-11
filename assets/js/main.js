@@ -617,7 +617,7 @@ function calculatePrice() {
   // Validation: Check if kilometers input is empty
   if (isNaN(kilometers) || kilometers <= 0) {
     document.getElementById("error-kilometers").innerText =
-      "Please enter a valid number of kilometers.";
+      "გთხოვთ შეიყვანეთ მანძილი რომელიც მეტია 0 კმ-ზე.";
     return;
   } else {
     document.getElementById("error-kilometers").innerText = ""; // Clear error message if valid input
@@ -774,5 +774,5 @@ function calculatePrice() {
   // Display result
   document.getElementById(
     "result"
-  ).innerHTML = `Total Price: ₾${totalPrice.toFixed(2)}`;
+  ).innerHTML = `სერვისის ღირებულება: ₾${totalPrice.toFixed(2)}`;
 }

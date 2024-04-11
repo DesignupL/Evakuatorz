@@ -742,7 +742,7 @@
 
         <div class="containerz">
           <div class="form-group">
-            <label for="city">Select service:</label>
+            <label for="city">აირჩიე სერვისი:</label>
             <select class="formdrop" id="city">
               <option value="Evakuatori">ევაკუატორი</option>
               <option value="Batumi">საბურავის შეცვლა</option>
@@ -750,24 +750,24 @@
             </select>
           </div>
           <div class="form-group">
-            <label for="carType">Select Car Type:</label>
+            <label for="carType">მანქანის ტიპი:</label>
             <select id="carType" class="formdrop">
-              <option value="Sedan">Sedan</option>
-              <option value="SUV">SUV</option>
-              <option value="Hatchback">Hatchback</option>
+              <option value="Sedan">მსუბუქი მანქანა</option>
+              <option value="SUV">ჯიპი & მინივენი</option>
+              <option value="Hatchback">სამარშუტო</option>
             </select>
           </div>
           <div class="form-group">
-            <label for="kilometers">Enter Kilometers:</label>
+            <label for="kilometers">შეიყვანე მანძილი:</label>
             <input
               class="formdrop"
               type="number"
               id="kilometers"
-              placeholder="Enter kilometers"
+              placeholder="კილომეტრი"
               required
             />
           </div>
-          <button onclick="calculatePrice()">Calculate Price</button>
+          <button onclick="calculatePrice()">გამოთვალე ფასი</button>
         </div>
         <div class="result" id="result"></div>
         <div id="error-kilometers" class="error-message"></div>
