@@ -643,26 +643,26 @@ function calculatePrice() {
       case "Batumi":
         switch (carType) {
           case "SUV":
-            suvPrice = 70;
+            suvPrice = 20;
             break;
           case "Sedan":
-            suvPrice = 60;
+            suvPrice = 20;
             break;
           case "Hatchback":
-            suvPrice = 80;
+            suvPrice = 20;
             break;
         }
         break;
       case "Mtskheta":
         switch (carType) {
           case "SUV":
-            suvPrice = 70;
+            suvPrice = 20;
             break;
           case "Sedan":
-            suvPrice = 60;
+            suvPrice = 20;
             break;
           case "Hatchback":
-            suvPrice = 80;
+            suvPrice = 20;
             break;
         }
         break;
@@ -691,26 +691,26 @@ function calculatePrice() {
       case "Batumi":
         switch (carType) {
           case "SUV":
-            suvPrice = 70;
+            suvPrice = 20;
             break;
           case "Sedan":
-            suvPrice = 60;
+            suvPrice = 10;
             break;
           case "Hatchback":
-            suvPrice = 80;
+            suvPrice = 30;
             break;
         }
         break;
       case "Mtskheta":
         switch (carType) {
           case "SUV":
-            suvPrice = 70;
+            suvPrice = 20;
             break;
           case "Sedan":
-            suvPrice = 60;
+            suvPrice = 20;
             break;
           case "Hatchback":
-            suvPrice = 80;
+            suvPrice = 20;
             break;
         }
         break;
@@ -739,26 +739,26 @@ function calculatePrice() {
       case "Batumi":
         switch (carType) {
           case "SUV":
-            suvPrice = 70;
+            suvPrice = 20;
             break;
           case "Sedan":
-            suvPrice = 60;
+            suvPrice = 20;
             break;
           case "Hatchback":
-            suvPrice = 80;
+            suvPrice = 20;
             break;
         }
         break;
       case "Mtskheta":
         switch (carType) {
           case "SUV":
-            suvPrice = 70;
+            suvPrice = 20;
             break;
           case "Sedan":
-            suvPrice = 60;
+            suvPrice = 20;
             break;
           case "Hatchback":
-            suvPrice = 80;
+            suvPrice = 20;
             break;
         }
         break;
