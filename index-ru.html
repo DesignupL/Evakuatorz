@@ -315,15 +315,19 @@
                     alt="ევაკუატორი ლოგო"
                 /></a>
               </div>
-              <div class="select-box clearfix">
-                <select
-                  class="selectmenuwide"
-                  id="pageDropdown"
-                  onchange="navigateToPage()"
-                >
-                  <option value="https://www.eplus.ge/index-ru.html">RU</option>
-                  <option value="https://www.eplus.ge">GE</option>
-                </select>
+              <div class="main-header__language-switcher">
+                <div class="language-switcher clearfix">
+                  <form action="#" class="clearfix">
+                    <div class="select-box clearfix">
+                      <select id="pageDropdown" onchange="navigateToPage()">
+                        <option value="https://www.eplus.ge">GE</option>
+                        <option value="https://www.eplus.ge/index-ru.html">
+                          RU
+                        </option>
+                      </select>
+                    </div>
+                  </form>
+                </div>
               </div>
               <div class="menu-outer">
                 <!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header-->
