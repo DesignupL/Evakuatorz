@@ -326,6 +326,10 @@
   color: var(--thm-primary);
 }
 
+.mobile-menu .main-header__language-switcher {
+  border-top: 1px solid rgb(0 0 0 / 10%);
+}
+
 @keyframes menu_sticky {
   0% {
     margin-top: -90px;
