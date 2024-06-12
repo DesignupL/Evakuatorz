@@ -776,3 +776,12 @@ function calculatePrice() {
     "result"
   ).innerHTML = `სერვისის ღირებულება: ₾${totalPrice.toFixed(2)}`;
 }
+
+function navigateToPage() {
+  var dropdown = document.getElementById("pageDropdown");
+  var selectedValue = dropdown.options[dropdown.selectedIndex].value;
+
+  if (selectedValue) {
+    window.location.href = selectedValue;
+  }
+}
