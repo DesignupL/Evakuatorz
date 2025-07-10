@@ -609,15 +609,32 @@ input.addEventListener("input", function (event) {
   }
 });
 function calculatePrice() {
+  // Detect language: by HTML lang attribute or URL
+  let lang = document.documentElement.lang || "ka";
+  // Optional: If you use URL like /ru/, you can use:
+  // let lang = window.location.href.includes('/ru/') ? 'ru' : 'ka';
+
   const city = document.getElementById("city").value;
   const carType = document.getElementById("carType").value;
   const kilometersInput = document.getElementById("kilometers");
   const kilometers = parseInt(kilometersInput.value);
 
+  // Error and result messages in both languages
+  const messages = {
+    ka: {
+      error: "გთხოვთ შეიყვანეთ მანძილი რომელიც მეტია 0 კმ-ზე.",
+      result: "სერვისის ღირებულება: ₾"
+    },
+    ru: {
+      error: "Пожалуйста, введите расстояние больше 0 км.",
+      result: "Стоимость услуги: ₾"
+    }
+  };
+  const msg = messages[lang] || messages["ka"];
+
   // Validation: Check if kilometers input is empty
   if (isNaN(kilometers) || kilometers <= 0) {
-    document.getElementById("error-kilometers").innerText =
-      "გთხოვთ შეიყვანეთ მანძილი რომელიც მეტია 0 კმ-ზე.";
+    document.getElementById("error-kilometers").innerText = msg.error;
     return;
   } else {
     document.getElementById("error-kilometers").innerText = ""; // Clear error message if valid input
@@ -629,47 +646,18 @@ function calculatePrice() {
     switch (city) {
       case "Evakuatori":
         switch (carType) {
-          case "SUV":
-            suvPrice = 60;
-            break;
-          case "Sedan":
-            suvPrice = 50;
-            break;
-          case "Hatchback":
-            suvPrice = 70;
-            break;
+          case "SUV": suvPrice = 60; break;
+          case "Sedan": suvPrice = 50; break;
+          case "Hatchback": suvPrice = 70; break;
         }
         break;
       case "Batumi":
-        switch (carType) {
-          case "SUV":
-            suvPrice = 20;
-            break;
-          case "Sedan":
-            suvPrice = 20;
-            break;
-          case "Hatchback":
-            suvPrice = 20;
-            break;
-        }
-        break;
       case "Mtskheta":
-        switch (carType) {
-          case "SUV":
-            suvPrice = 20;
-            break;
-          case "Sedan":
-            suvPrice = 20;
-            break;
-          case "Hatchback":
-            suvPrice = 20;
-            break;
-        }
+        suvPrice = 20;
         break;
       default:
         break;
     }
-
     const additionalPricePerKm = 10;
     const additionalKilometers = (kilometers - 10) / 5;
     totalPrice = suvPrice + additionalKilometers * additionalPricePerKm;
@@ -677,47 +665,24 @@ function calculatePrice() {
     switch (city) {
       case "Evakuatori":
         switch (carType) {
-          case "SUV":
-            suvPrice = 80;
-            break;
-          case "Sedan":
-            suvPrice = 70;
-            break;
-          case "Hatchback":
-            suvPrice = 90;
-            break;
+          case "SUV": suvPrice = 80; break;
+          case "Sedan": suvPrice = 70; break;
+          case "Hatchback": suvPrice = 90; break;
         }
         break;
       case "Batumi":
         switch (carType) {
-          case "SUV":
-            suvPrice = 20;
-            break;
-          case "Sedan":
-            suvPrice = 10;
-            break;
-          case "Hatchback":
-            suvPrice = 30;
-            break;
+          case "SUV": suvPrice = 20; break;
+          case "Sedan": suvPrice = 10; break;
+          case "Hatchback": suvPrice = 30; break;
         }
         break;
       case "Mtskheta":
-        switch (carType) {
-          case "SUV":
-            suvPrice = 20;
-            break;
-          case "Sedan":
-            suvPrice = 20;
-            break;
-          case "Hatchback":
-            suvPrice = 20;
-            break;
-        }
+        suvPrice = 20;
         break;
       default:
         break;
     }
-
     const additionalPricePerKm = 10;
     const additionalKilometers = (kilometers - 10) / 10;
     totalPrice = suvPrice + additionalKilometers * additionalPricePerKm;
@@ -725,57 +690,27 @@ function calculatePrice() {
     switch (city) {
       case "Evakuatori":
         switch (carType) {
-          case "SUV":
-            suvPrice = 120;
-            break;
-          case "Sedan":
-            suvPrice = 100;
-            break;
-          case "Hatchback":
-            suvPrice = 140;
-            break;
+          case "SUV": suvPrice = 120; break;
+          case "Sedan": suvPrice = 100; break;
+          case "Hatchback": suvPrice = 140; break;
         }
         break;
       case "Batumi":
-        switch (carType) {
-          case "SUV":
-            suvPrice = 20;
-            break;
-          case "Sedan":
-            suvPrice = 20;
-            break;
-          case "Hatchback":
-            suvPrice = 20;
-            break;
-        }
-        break;
       case "Mtskheta":
-        switch (carType) {
-          case "SUV":
-            suvPrice = 20;
-            break;
-          case "Sedan":
-            suvPrice = 20;
-            break;
-          case "Hatchback":
-            suvPrice = 20;
-            break;
-        }
+        suvPrice = 20;
         break;
       default:
         break;
     }
-
     const additionalPricePerKm = 10;
     const additionalKilometers = (kilometers - 10) / 10;
     totalPrice = suvPrice + additionalKilometers * additionalPricePerKm;
   }
 
-  // Display result
-  document.getElementById(
-    "result"
-  ).innerHTML = `სერვისის ღირებულება: ₾${totalPrice.toFixed(2)}`;
+  // Display result in the correct language
+  document.getElementById("result").innerHTML = `${msg.result}${totalPrice.toFixed(2)}`;
 }
+
 
 function navigateToPage() {
   var dropdown = document.getElementById("pageDropdown");
