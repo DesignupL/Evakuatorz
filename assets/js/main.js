@@ -608,19 +608,16 @@ input.addEventListener("input", function (event) {
     totalPrice = 0;
   }
 });
-function calculatePrice() {
-  // Detect language: by HTML lang attribute or URL
-  let lang = document.documentElement.lang || "ka";
-  // Optional: If you use URL like /ru/, you can use:
-  // let lang = window.location.href.includes('/ru/') ? 'ru' : 'ka';
 
-  const city = document.getElementById("city").value;
-  const carType = document.getElementById("carType").value;
-  const kilometersInput = document.getElementById("kilometers");
-  const kilometers = parseInt(kilometersInput.value);
+// Store the last calculated price and kilometers for language switching
+let lastCalculation = {
+  totalPrice: null,
+  kilometers: null,
+  error: false
+};
 
-  // Error and result messages in both languages
-  const messages = {
+function getCalculatorMessages(lang) {
+  return {
     ka: {
       error: "გთხოვთ შეიყვანეთ მანძილი რომელიც მეტია 0 კმ-ზე.",
       result: "სერვისის ღირებულება: ₾"
@@ -629,12 +626,46 @@ function calculatePrice() {
       error: "Пожалуйста, введите расстояние больше 0 км.",
       result: "Стоимость услуги: ₾"
     }
+  }[lang] || {
+    error: "გთხოვთ შეიყვანეთ მანძილი რომელიც მეტია 0 კმ-ზე.",
+    result: "სერვისის ღირებულება: ₾"
   };
-  const msg = messages[lang] || messages["ka"];
+}
+
+function getCurrentLang() {
+  return document.documentElement.lang || "ka";
+}
+
+function updateCalculatorOutput() {
+  const lang = getCurrentLang();
+  const msg = getCalculatorMessages(lang);
+
+  if (lastCalculation.error) {
+    document.getElementById("error-kilometers").innerText = msg.error;
+    document.getElementById("result").innerHTML = "";
+  } else if (lastCalculation.totalPrice !== null) {
+    document.getElementById("error-kilometers").innerText = "";
+    document.getElementById("result").innerHTML = `${msg.result}${lastCalculation.totalPrice.toFixed(2)}`;
+  } else {
+    document.getElementById("error-kilometers").innerText = "";
+    document.getElementById("result").innerHTML = "";
+  }
+}
+
+function calculatePrice() {
+  let lang = getCurrentLang();
+
+  const city = document.getElementById("city").value;
+  const carType = document.getElementById("carType").value;
+  const kilometersInput = document.getElementById("kilometers");
+  const kilometers = parseInt(kilometersInput.value);
+
+  const msg = getCalculatorMessages(lang);
 
   // Validation: Check if kilometers input is empty
   if (isNaN(kilometers) || kilometers <= 0) {
-    document.getElementById("error-kilometers").innerText = msg.error;
+    lastCalculation = { totalPrice: null, kilometers, error: true };
+    updateCalculatorOutput();
     return;
   } else {
     document.getElementById("error-kilometers").innerText = ""; // Clear error message if valid input
@@ -707,9 +738,21 @@ function calculatePrice() {
     totalPrice = suvPrice + additionalKilometers * additionalPricePerKm;
   }
 
-  // Display result in the correct language
-  document.getElementById("result").innerHTML = `${msg.result}${totalPrice.toFixed(2)}`;
+  lastCalculation = { totalPrice, kilometers, error: false };
+  updateCalculatorOutput();
 }
+
+// Listen for language changes (if you change <html lang="..."> dynamically)
+const observer = new MutationObserver(function (mutations) {
+  mutations.forEach(function (mutation) {
+    if (mutation.attributeName === "lang") {
+      updateCalculatorOutput();
+    }
+  });
+});
+observer.observe(document.documentElement, { attributes: true });
+
+// Optionally, if you use a language switcher button, call updateCalculatorOutput() after switching language.
 
 
 function navigateToPage() {
